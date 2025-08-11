@@ -1,0 +1,15 @@
+.showcase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4vw;
+  margin-bottom: 80px;
+}
+.container {
+  max-width: var(--container);  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
