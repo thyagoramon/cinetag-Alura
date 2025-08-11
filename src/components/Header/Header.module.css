@@ -1,0 +1,31 @@
+.header {
+  background-color: var(--color-black);
+  height: 88px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4vw;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--container);
+  width: 100%;
+  gap: 4vw;
+}
+
+.nav {
+  display: flex;
+  gap: 4vw;
+}
+
+.link {
+  color: var(--color-white);
+  font-size: 1.125rem;
+  transition: 0.3s ease;
+  &:hover {
+    color: var(--hover);
+  }
+}
