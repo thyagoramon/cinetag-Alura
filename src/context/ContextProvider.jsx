@@ -20,6 +20,12 @@ export const ContextProvider = ({ children }) => {
     );
   }
 
+  //movie to player
+  const [toPlay, setToPlay] = useState([])
+  
+  //start play
+
+
   return (
     <Context.Provider
       value={{
@@ -27,6 +33,8 @@ export const ContextProvider = ({ children }) => {
         setMovies,
         favoriteMovies,        
         toggleLike,
+        toPlay,
+        setToPlay,
       }}
     >
       {children}

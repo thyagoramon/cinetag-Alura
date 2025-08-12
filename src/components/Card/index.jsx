@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useContext } from "react";
 import { Context } from "@/context/context";
 import styles from "./Card.module.css";
@@ -9,9 +10,9 @@ const Card = ({ movie }) => {
 
   return (
     <div className={styles.card}>
-      <a href={movie.link} target="_blank">
+      <Link to={`/${movie.id}`}>
         <img src={movie.capa} alt={movie.titulo} />
-      </a>
+      </Link>
       <h2>{movie.titulo}</h2>
       <button type="button" onClick={() => toggleLike(movie.id)}>
         <img src={movie.favorito ? iconFavorito : iconNaoFavorito} />

@@ -1,18 +1,21 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import Home from "@/pages/home";
-import Favoritos from "./pages/favoritos";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Favoritos from "@/pages/favoritos";
+import Player from "@/pages/player";
+import NaoEncontrada from "@/pages/naoEncontrada";
+import Base from "./pages/base";
 
 function AppRoutes() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/favoritos" element={<Favoritos />}></Route>
+        <Route path="/" element={<Base />}>
+          <Route index element={<Home />}></Route>
+          <Route path="favoritos" element={<Favoritos />}></Route>
+          <Route path=":id" element={<Player />}></Route>
+          <Route path="*" element={<NaoEncontrada />}></Route>
+        </Route>
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }
