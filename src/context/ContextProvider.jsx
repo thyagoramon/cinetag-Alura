@@ -1,11 +1,21 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Context } from "./context";
-import moviesJson from "@/json/db.json";
+import axios from "axios";
 
 export const ContextProvider = ({ children }) => {
   //movies
-  const [movies, setMovies] = useState(moviesJson);
-  
+  const [movies, setMovies] = useState([]);
+
+  //get data from API
+  useEffect(() => {
+    axios
+      .get("https://my-json-server.typicode.com/thyagoramon/cinetag-API/videos")
+      .then((response) => {
+        setMovies(response.data)
+      })
+      .catch(err => console.error(err));
+  }, []);
+
   //liked movies
   const favoriteMovies = useMemo(() => {
     return movies.filter((movie) => movie.favorito);
@@ -21,17 +31,14 @@ export const ContextProvider = ({ children }) => {
   }
 
   //movie to player
-  const [toPlay, setToPlay] = useState([])
-  
-  //start play
-
+  const [toPlay, setToPlay] = useState([null]);
 
   return (
     <Context.Provider
       value={{
         movies,
         setMovies,
-        favoriteMovies,        
+        favoriteMovies,
         toggleLike,
         toPlay,
         setToPlay,
