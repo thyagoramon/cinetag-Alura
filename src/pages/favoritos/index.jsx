@@ -4,16 +4,16 @@ import Banner from "@/components/Banner";
 import Title from "@/components/Title";
 import Showcase from "@/components/Showcase";
 
-const Home = () => {
-  const { movies } = useContext(Context);
+const Favoritos = () => {
+  const { favoriteMovies } = useContext(Context);
 
   return (
     <>
-      <Banner imagem="home" />
-      <Title>Um lugar para guardar seus vídeos e filmes!</Title>
-      <Showcase toShow={movies} />
+      <Banner imagem="favoritos" />
+      <Title>Meus Favoritos</Title>
+      <Showcase toShow={favoriteMovies} />
     </>
   );
 };
 
-export default Home;
+export default Favoritos;

@@ -5,15 +5,7 @@ import iconFavorito from "./favorite.png";
 import iconNaoFavorito from "./favorite_outline.png";
 
 const Card = ({ movie }) => {
-  const { movies, setMovies } = useContext(Context);
-
-  const toggleLike = (id) => {
-    setMovies(
-      movies.map((movie) =>
-        movie.id === id ? { ...movie, favorito: !movie.favorito } : movie
-      )
-    );
-  };
+  const { toggleLike } = useContext(Context);
 
   return (
     <div className={styles.card}>
